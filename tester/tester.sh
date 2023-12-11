@@ -5,10 +5,14 @@ function help() {
 }
 
 function compare() {
-   for FILE_IN in "$2"/*_in; do
-     cat "$FILE_IN"
-     echo
-   done
+  local i=0
+  for REF_FILE in "$1"/*out*; do
+    OUT_FILE="$2"/"$i"_out.txt
+    diff "$REF_FILE" "$OUT_FILE" > tmp
+    cat tmp
+    i=$((i + 1))
+  done
+  rm tmp
 }
 
 function generate_output () {
@@ -64,6 +68,7 @@ function main() {
 
   get_params "$@"
   generate_output "$PATH_TO_BIN" "$PATH_TO_INPUT" "$PATH_TO_OUTPUT"
+  compare "$PATH_TO_INPUT" "$PATH_TO_OUTPUT"
 
   if [ "$KEEP" -eq 0 ]; then
     delete_output "$PATH_TO_OUTPUT"
