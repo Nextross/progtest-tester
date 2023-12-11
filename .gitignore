@@ -1,0 +1,13 @@
+# CLion files
+.idea
+
+# Files for testing
+*.c
+*.out
+test.sh
+
+# Directories for testing
+sample/*
+empty_dir/*
+output/*
+s/*
