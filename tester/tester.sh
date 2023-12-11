@@ -62,7 +62,7 @@ function main() {
   PATH_TO_OUTPUT="$PWD"/output
   KEEP=0
 
-  get_params "$1"
+  get_params "$@"
   generate_output "$PATH_TO_BIN" "$PATH_TO_INPUT" "$PATH_TO_OUTPUT"
 
   if [ "$KEEP" -eq 0 ]; then
