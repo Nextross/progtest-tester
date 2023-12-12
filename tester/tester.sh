@@ -58,11 +58,11 @@ function delete_output() {
 }
 
 function get_params() {
-  while getopts ":ht:s:o:k" option; do
+  while getopts ":ht:i:o:k" option; do
     case "$option" in
       h) help; exit;;
       t) PATH_TO_BIN="$OPTARG";;
-      s) PATH_TO_INPUT="$PWD/$OPTARG";;
+      i) PATH_TO_INPUT="$PWD/$OPTARG";;
       o) PATH_TO_OUTPUT="$PWD/$OPTARG";;
       k) KEEP=1;;
       \?) echo "Not a flag, exiting..."; exit;;
