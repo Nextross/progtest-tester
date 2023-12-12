@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Version 1.0
+
 function help() {
   echo HEEEEEEELP
 }
